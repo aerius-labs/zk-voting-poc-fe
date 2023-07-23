@@ -1,4 +1,4 @@
-# zk-voting-poc-fe
+# Bandwagon - A private voting protocol
 
 Private voting protocol that utilizes homomorphic encryption to battle the Bandwagon effect. Built on top of Mina protocol.
 
