@@ -3,8 +3,9 @@ import './App.css';
 import { ProposalForm } from './components/ProposalForm/ProposalForm';
 import Navbar from './components/Navbar/Navbar';
 import { VotingForm } from './components/VotingForm/VotingForm';
+import { isReady } from 'snarkyjs';
 
-const App = () => {
+const App = async () => {
   return (
     <Router>
       <Navbar />
