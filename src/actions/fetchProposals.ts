@@ -2,14 +2,12 @@ import axios from 'axios';
 
 export async function fetchDataFromCID(cid: string) {
   // Replace with the IPFS gateway you are using
-  const ipfsGateway =
-    'https://crimson-psychological-fox-104.mypinata.cloud/ipfs/';
+  const ipfsGateway = 'https://ipfs.io/ipfs/';
 
   try {
     const response = await axios.get(ipfsGateway + cid);
     const data = response.data;
-
-    // Return an object containing the required properties
+    
     return {
       title: data.title,
       description: data.description,

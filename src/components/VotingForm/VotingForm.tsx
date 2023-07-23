@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import styles from './VotingForm.module.css';
 import { fetchDataFromCID } from '../../actions/fetchProposals';
-import axios from 'axios';
 import { convertTimestampToReadableDate } from '../helpers';
+import { generateKeypair } from '../../actions/cryptProposal';
 
 export function VotingForm() {
   const CID = 'QmWn7GERTok9h56WH5jBm1RrsfQJwpoq9YwfUgTpi5wkUS';
@@ -18,6 +18,7 @@ export function VotingForm() {
       setDeadline(convertTimestampToReadableDate(res?.deadline));
       setLoading(false);
     });
+    generateKeypair();
   }, []);
 
   const handleSubmit = (event: { preventDefault: () => void }) => {

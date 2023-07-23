@@ -1,22 +1,18 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const Navbar = () => {
-  const [buttonText, setButtonText] = useState('Connect');
   const [account, setAccount] = useState(null);
 
   const handleConnect = async () => {
+    // @ts-ignore
     if (!window.mina) {
       alert('No provider was found 请先安装 Auro Wallet');
     } else {
-      setButtonText('Onboarding in progress');
+      // @ts-ignore
       const data = await window.mina.requestAccounts().catch((err) => err);
-      if (data.message) {
-        setButtonText(data.message);
-      } else {
-        setAccount(data);
-        setButtonText('Connected');
-      }
+      setAccount(data);
     }
   };
 
