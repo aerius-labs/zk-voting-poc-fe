@@ -5,14 +5,9 @@ import { getUnixTime } from 'date-fns';
 export function ProposalForm() {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
-  const [deadline, setDeadline] = useState(0); // deadline for the proposal in unix seconds
   const [dateTime, setDateTime] = useState(
     new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString().slice(0, 16)
   );
-
-  // timelock:
-  // lamda
-  // mew
 
   const handleSubmit = (event: { preventDefault: () => void }) => {
     event.preventDefault();
@@ -21,6 +16,17 @@ export function ProposalForm() {
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setDateTime(event.target.value);
     console.log('Unix timestamp: ', getUnixTime(new Date(event.target.value)));
+  };
+
+  const handlePublishProposal = async () => {
+    try {
+      const signResult = await window.mina.signMessage({
+        message: 'yiZwL1oTzqJCmjEVosjWhvohmEwYJyKG',
+      });
+      console.log(signResult);
+    } catch (error) {
+      console.log(error.message, error.code);
+    }
   };
 
   return (
@@ -53,7 +59,7 @@ export function ProposalForm() {
       </label>
 
       <label className={styles.label}>
-        <button>Publish proposal</button>
+        <button onClick={handlePublishProposal}>Publish proposal</button>
       </label>
     </form>
   );
