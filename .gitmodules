@@ -1,0 +1,3 @@
+[submodule "zk-voting-poc"]
+	path = zk-voting-poc
+	url = git@github.com:aerius-labs/zk-voting-poc.git
