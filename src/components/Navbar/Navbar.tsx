@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import logo from '../../assets/logocropped.png';
 
 const Navbar = () => {
   const [account, setAccount] = useState(null);
@@ -37,6 +38,14 @@ const Navbar = () => {
       )}
     </nav>
   );
+};
+
+const logoStyle = {
+  height: '50px', // adjust as needed
+  position: 'absolute', // position the logo absolutely
+  left: '50px', // adjust as needed
+  top: '50%', // to vertically center
+  transform: 'translateY(-50%)', // to vertically center
 };
 
 const navbarStyle = {
